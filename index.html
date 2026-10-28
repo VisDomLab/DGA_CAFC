@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="DGA-CAFC: Attention Drift Regularization with Adaptive Initialization for Domain-Robust Visual Recognition. WACV 2027." />
+    <title>DGA-CAFC | WACV 2027</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=1" />
+  </head>
+  <body>
+    <header class="topbar"><div class="topbar-inner">
+      <a class="paper-id" href="#top"><span class="mark">DG</span><span>DGA-CAFC</span></a>
+      <a class="lab-link" href="#contact"><span class="lab-name">Research Project</span></a>
+      <nav><a href="#abstract">Abstract</a><a href="#method">Method</a><a href="#results">Results</a><a href="#citation">Citation</a></nav>
+      <a class="mini-button" href="paper.html">Paper <span>↗</span></a>
+    </div></header>
+    <main id="top">
+      <section class="title-section wrap">
+        <div class="venue-row"><a class="venue-pill" href="https://wacv.thecvf.com/" target="_blank" rel="noreferrer">WACV 2027</a><span class="venue-tier">Algorithms Track</span></div>
+        <h1><span>Attention Drift Regularization with</span><span>Adaptive Initialization for Domain-Robust Visual Recognition</span></h1>
+        <!-- TODO: Replace author information with final camera-ready author list and affiliations. -->
+        <p class="authors">Authors to be added</p>
+        <p class="affiliation">Affiliations and author links will be added after confirmation.</p>
+        <div class="title-actions"><a class="action-button filled" href="paper.html"><span class="button-icon">▤</span> Paper <span class="arrow">↗</span></a><a class="action-button" href="#links"><span class="button-icon">⌘</span> Code <span class="arrow">↗</span></a><a class="text-link" href="#abstract">Scroll to explore ↓</a></div>
+      </section>
+      <section class="figure-section wrap"><div class="figure-frame">
+        <div class="figure-head"><span>FIGURE 2 · FRAMEWORK OVERVIEW</span><span>CAFC + DGASS</span></div>
+        <img src="assets/dgacafc-framework.png" alt="DGA-CAFC overall framework: two candidate source models, DGASS source selection, teacher-student adaptation, and CAFC regularization" loading="eager" />
+        <div class="figure-caption"><strong>Framework:</strong> DGASS selects a source candidate using target prediction entropy before adaptation; CAFC constrains attention-conditioned representations throughout training.</div>
+      </div></section>
+      <section class="abstract-section wrap" id="abstract">
+        <div class="section-label">01 <span>ABSTRACT</span></div>
+        <div class="abstract-grid"><h2>Robust features<br />despite <em>drifting attention.</em></h2><div>
+          <p>Visual recognition under domain shift is hindered by two complementary problems: attention can drift toward spurious or background regions, and source-free adaptation often initializes from one fixed model regardless of the target domain gap.</p>
+          <p>We introduce <strong>DGA-CAFC</strong>, combining <strong>Counterfactual Attention-based Feature Consistency (CAFC)</strong> and <strong>Domain-Gap Aware Source Model Selection (DGASS)</strong>. CAFC encourages stable attention-conditioned features under counterfactual-inspired perturbations; DGASS uses unlabeled target prediction entropy to choose an appropriate source initialization.</p>
+          <p>CAFC also acts as a lightweight regularizer for domain generalization, without requiring target data during training.</p>
+          <p class="abstract-note">Attention stability. Gap-aware initialization. Domain robustness.</p>
+        </div></div>
+        <div class="motivation-figure"><img src="assets/cafc-motivation.png" alt="CAFC concept: attention drift from source-like to target behavior and counterfactual attention-based feature consistency" loading="lazy" /><p><strong>Figure 1 · CAFC.</strong> Counterfactual attention-based feature consistency encourages stable representations when attention changes across domains.</p></div>
+      </section>
+      <section class="method-section wrap" id="method">
+        <div class="section-label">02 <span>HOW IT WORKS</span></div>
+        <div class="method-heading"><h2>Stabilize attention.<br /><span>Initialize for the gap.</span></h2><p>Two complementary modules address distinct weaknesses in source-free domain adaptation.</p></div>
+        <div class="method-cards">
+          <article><div class="card-top"><span>01</span><span class="card-glyph">◎</span></div><h3>Counterfactual<br />attention</h3><p>Construct uniform, random, and reversed attention maps to stress-test reliance on learned attention.</p><div class="card-tag">CAFC · PERTURBATIONS</div></article>
+          <article><div class="card-top"><span>02</span><span class="card-glyph">⌁</span></div><h3>Feature<br />consistency</h3><p>Align representations under learned and counterfactual attention to improve resistance to attention drift.</p><div class="card-tag">CAFC · REGULARIZATION</div></article>
+          <article><div class="card-top"><span>03</span><span class="card-glyph">✦</span></div><h3>Domain-gap<br />aware selection</h3><p>Estimate target uncertainty from unlabeled predictions and select the source variant best suited to the estimated shift.</p><div class="card-tag">DGASS · INITIALIZATION</div></article>
+        </div>
+      </section>
+      <section class="results-section" id="results"><div class="wrap">
+        <div class="section-label light-label">03 <span>EXPERIMENTAL RESULTS</span></div>
+        <div class="results-heading"><h2>Domain robustness<br />across <em>benchmarks.</em></h2><p>Average top-1 accuracy (%) under the source-free domain adaptation protocol.</p></div>
+        <div class="result-row"><div><strong>91.65%</strong><span>Office31 · avg. accuracy</span></div><div><strong>79.75%</strong><span>Office-Home · avg. accuracy</span></div><div><strong>87.49%</strong><span>DomainNet40 · avg. accuracy</span></div><div><strong>+1.01</strong><span>Office31 · pp vs. ablation baseline</span></div></div>
+        <div class="result-foot"><span>SFDA · office / visual-domain benchmarks</span><span>Higher accuracy is better ↑</span></div>
+        <div class="evidence-grid">
+          <figure><div class="figure-placeholder dark"><strong>Benchmark comparison visualization needed</strong><span>Upload an accuracy comparison bar chart for Office31, Office-Home, and DomainNet40. <code>sfda-comparison.png</code></span></div><figcaption><strong>SFDA benchmarks.</strong> DGA-CAFC reports 91.65%, 79.75%, and 87.49% mean classification accuracy on Office31, Office-Home, and DomainNet40.</figcaption></figure>
+          <figure><div class="figure-placeholder dark"><strong>Domain generalization results figure needed</strong><span>Upload a PACS/VLCS accuracy-gain plot comparing standard objectives with CAFC. <code>dg-comparison.png</code></span></div><figcaption><strong>Domain generalization.</strong> CAFC improves all five tested objectives on PACS and VLCS with the ImageNet-pretrained ResNet-50 evaluation protocol.</figcaption></figure>
+        </div>
+      </div></section>
+      <section class="links-section wrap" id="links"><div class="links-card" id="citation"><div><div class="section-label">04 <span>RESOURCES &amp; CITATION</span></div><h2>Explore the paper.<br /><span>Follow the research.</span></h2></div><div class="resource-buttons"><a class="resource-button primary" href="paper.html">Paper <span>↗</span></a><a class="resource-button" href="#contact">Code · coming soon <span>↗</span></a><a class="resource-button citation-button" href="#citation-text">Cite this work <span>↓</span></a><small>Links will be updated with the public paper, code, and author details.</small></div></div>
+      <div class="citation-text" id="citation-text"><span>BibTeX · provisional; add authors when confirmed</span><code>@inproceedings{dgacafc2027,<br />&nbsp; title = {Attention Drift Regularization with Adaptive Initialization for Domain-Robust Visual Recognition},<br />&nbsp; booktitle = {IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},<br />&nbsp; year = {2027}<br />}</code></div></section>
+    </main>
+    <section class="contact-section wrap" id="contact"><div class="contact-card"><div><div class="section-label">05 <span>CONTACT</span></div><h2>Questions or<br /><em>collaboration?</em></h2></div><div class="contact-details"><p>Contact details will be added when the final author and corresponding-author information is provided.</p></div></div></section>
+    <footer class="footer wrap"><span>DGA-CAFC · WACV 2027</span><span>Attention stability for domain-robust recognition.</span><a href="#top">↑ Top</a></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
