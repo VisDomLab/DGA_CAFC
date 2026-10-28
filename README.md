@@ -1,46 +1,38 @@
-# DGA-CAFC | WACV 2027
+# DGA-CAFC — WACV 2027
 
-Project website for **Attention Drift Regularization with Adaptive Initialization for Domain-Robust Visual Recognition** (WACV 2027, Algorithms Track).
+Official project-page website scaffold for **Attention Drift Regularization with Adaptive Initialization for Domain-Robust Visual Recognition** (WACV 2027, Algorithms Track).
 
-This static site is based on the layout and design conventions of the supplied 3D-BBDA project page. It includes sections for the abstract, CAFC and DGASS methods, quantitative results, links, and citation.
+**Authors:** Shivangi Rai and Vinod K Kurmi  
+**Affiliation:** Department of Data Science and Engineering, Indian Institute of Science Education and Research Bhopal, India.
 
-## View locally
+## Preview locally
 
-Open `index.html` in a browser, or serve the folder with `python -m http.server 8000` and visit `http://localhost:8000`.
+Open `index.html` directly in any modern browser. The page is static and requires no build step. All charts work offline without third-party dependencies.
 
-## Deploy with GitHub Pages
+Optionally, use `python -m http.server 8000` in this directory and visit `http://localhost:8000`.
 
-Create a GitHub repository, push this directory's files to the root of its default branch, then enable GitHub Pages via **Settings → Pages → Deploy from a branch** and select that branch's `/ (root)`.
+## Deploy on GitHub Pages
 
-## Images requested
+1. Create a public repository named `DGA-CAFC` under the account `shivangiraii`.
+2. Upload the **contents** of this directory (including `index.html`) to the root of the `main` branch.
+3. In **Settings → Pages**, choose **Deploy from a branch**, `main`, and `/(root)`.
+4. The expected published URL is `https://shivangiraii.github.io/DGA-CAFC/` after deployment.
 
-Please supply high-resolution, publication-approved versions of:
+## Website contents
 
-- `assets/dgacafc-framework.png` — full method framework (paper Fig. 2; high priority)
-- `assets/cafc-motivation.png` — CAFC diagram (paper Fig. 1) or motivation/attention-drift visualization (high priority)
-- `assets/sfda-comparison.png` — plot/chart comparing SFDA results (optional, can construct from the paper)
-- `assets/dg-comparison.png` — PACS/VLCS gains with CAFC (optional, can construct from the paper)
+- `index.html`: semantic website sections and paper information.
+- `styles.css`: premium navy/cyan/violet responsive theme.
+- `script.js`: accessible mobile menu, subtle scroll effects and interactive, dependency-free charts.
+- `assets/dgacafc-framework.png`: full DGA-CAFC framework figure.
+- `assets/cafc-motivation.png`: CAFC figure.
 
-When images arrive, replace each corresponding `<div class="figure-placeholder ...">` with `<img src="assets/FILENAME.png" alt="..." />` in `index.html`. Do not reuse 3D-BBDA figures: they illustrate a different paper.
+The **Paper** and **Code** buttons deliberately say **Coming Soon**; there is no BibTeX section or acknowledgements section. The page contains no paper PDF or implementation code. All results are drawn from the supplied manuscript; SFDA accuracy values are from its Tables 1–3 and DG ResNet-50 averages from Tables 4–5.
 
-## Information still needed
+## Updating content
 
-- Final author names, order, affiliations, author homepage links, and equal-contribution notes, if any.
-- Corresponding-author email and optional lab homepage link.
-- Public paper URL/PDF approval. The uploaded manuscript is an anonymous submission draft and is **not included** in this repository.
-- Public code repository URL and whether implementation or checkpoints will be released.
-- Final approved BibTeX citation.
+When the public paper and implementation are available, edit the `.inactive-btn` elements in `index.html` to active links. To update results, modify the `datasets` constant in `script.js`.
 
-## Notes
+## Contact
 
-The numbers on the page are from the supplied manuscript: 91.65% Office31, 79.75% Office-Home, 87.49% DomainNet40; Office31 full method exceeds the 90.64% ablation baseline by 1.01 percentage points. The repo is a **project webpage**, not a runnable training/inference implementation.
-
-No author identities are inferred from other projects. Replace all placeholders before public release.
-
-
-## Included paper figures
-
-- `assets/dgacafc-framework.png` — Figure 2, full framework overview (white-backed version of the uploaded transparent PNG).
-- `assets/cafc-motivation.png` — Figure 1, CAFC illustration (white-backed version of the uploaded transparent PNG).
-
-Both images are integrated into `index.html`. Attribution/citation should follow the final camera-ready publication.
+- Shivangi Rai — shivangir23@iiserb.ac.in
+- Vinod K Kurmi — vinodkk@iiserb.ac.in
